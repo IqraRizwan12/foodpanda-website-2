@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 function Cards(){
     return (
         <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item xs={11}>
         <Card sx={{ width:'100%',marginTop:'20px',marginRight:'20px',marginBottom:'20px' }}>
         <CardActionArea onClick={() => {}} component={Link}  to={'/detail:id'}>
           <CardMedia

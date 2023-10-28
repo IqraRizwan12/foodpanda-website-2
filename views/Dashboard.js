@@ -5,7 +5,8 @@ import Cards from "../components/Cards"
 function Dashboard(){
 
     return (
-       <Grid> 
+       <Grid sx={{display:'flex'}}> 
+       <Cards/>
        <Cards/>
        <Cards/>
        <Cards/>
