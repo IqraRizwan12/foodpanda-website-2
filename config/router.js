@@ -11,6 +11,7 @@ import Footer from "../components/Footer"
 import Signin from "../views/Signin"
 import Homepage from "../views/Homepage"
 import Detail from '../views/Detail'
+import { postRestaurants } from "./firebase"
 
 
 
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
                 element: <Dashboard/>
             },
             {
-                path: "/detail:id",
+                path: "/restro/:restro_id",
                 element: <Detail/>
             },
             
@@ -45,12 +46,16 @@ function Router() {
 }
 
 function Main(){
-    const navigate = useNavigate()
+   
+    //  function restaurants(){
+    //      postRestaurants()
+    // }
     
     return(
     
     <div>
         <Header/>
+        {/* <button onClick={restaurants}>Restaurants</button> */}
         <Outlet/>
         <Footer/>
     </div>
