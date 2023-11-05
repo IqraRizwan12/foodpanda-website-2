@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid, Link, Typography } from '@mui/material'
+import { Button, Grid, Link, Typography } from '@mui/material'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
@@ -9,11 +9,14 @@ import { useEffect, useState } from "react"
 import { getSingleData } from "../config/firebase"
 import 'react-tabs/style/react-tabs.css'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import {  useDispatch } from 'react-redux'
+import { AddCartToStore } from '../store/cart';
 
 function Detail() {
 
     const [restroData, setRestroData] = useState()
     const { restro_id } = useParams()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         getData()
@@ -35,6 +38,10 @@ function Detail() {
 
     for (let key in opening_hours) {
         open_hours.push(`${key}: ${opening_hours[key]}`)
+    }
+
+    function addToCart(item){
+        dispatch(AddCartToStore(item))
     }
 
 
@@ -70,6 +77,7 @@ function Detail() {
 
                             <Typography variant="h6" component="div" >{item.item}</Typography>
                             <Typography variant="h6" component="div">Rs. {item.price}</Typography>
+                            <Button sx={{background: 'white', color: 'black', border: '1px solid black',fontSize:'small',width:'100px',height:'40px',margin:'20px',padding:'10px'}} onClick={()=>addToCart(item)}>Add to Cart</Button>
 
                         </CardContent>
                         <CardMedia
@@ -89,6 +97,7 @@ function Detail() {
 
                             <Typography variant="h5" component="div" >{item.item}</Typography>
                             <Typography variant="h5" component="div">Rs. {item.price}</Typography>
+                            <Button  sx={{background: 'white', color: 'black', border: '1px solid black',fontSize:'small',width:'100px',height:'40px',margin:'20px',padding:'10px'}} onClick={()=>addToCart(item)}>Add to Cart</Button>
 
                         </CardContent>
                         <CardMedia
@@ -109,6 +118,7 @@ function Detail() {
 
                             <Typography variant="h5" component="div" >{item.item}</Typography>
                             <Typography variant="h5" component="div">Rs. {item.price}</Typography>
+                            <Button  sx={{background: 'white', color: 'black', border: '1px solid black',fontSize:'small',width:'100px',height:'40px',margin:'20px',padding:'10px'}} onClick={()=>addToCart(item)}>Add to Cart</Button>
 
                         </CardContent>
                         <CardMedia

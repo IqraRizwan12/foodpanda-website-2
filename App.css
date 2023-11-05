@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -18,10 +18,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
 .App-link {
@@ -35,4 +32,47 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.box{
+ width:10px;
+ height:10px;
+ border: 1px solid black;
+ display: inline-block;
+ border-radius: 10px;
+ 
+ 
 }
+
+.red{
+  background-color: red;
+  color:white
+}
+
+.black{
+  background-color: black;
+  color:white
+}
+
+.white{
+  background-color: white;
+  color:black
+}
+
+.red-theme{
+  background-color: red;
+  color:white
+}
+
+.black-theme{
+  background-color: black;
+  color:white
+}
+
+.white-theme{
+  background-color: white;
+  color:black
+}
+
+
+

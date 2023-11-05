@@ -8,9 +8,9 @@ import { CardActionArea,Grid } from '@mui/material';
 function Cards(props){
   const { restaurant_name, cuisine_type,image_url } = props.data
     return (
-        <Grid container spacing={2} >
-        <Grid item xs={11}>
-        <Card sx={{ width:'100%',marginTop:'20px',marginRight:'20px',marginBottom:'20px' }}>
+        // <Grid container spacing={2} >
+        // <Grid item xs={11}>
+        <Card sx={{ width:'300px',margin:'5px',display:'inline-block' }}>
         <CardActionArea onClick={props.onClick}>
           <CardMedia
             component="img"
@@ -28,8 +28,8 @@ function Cards(props){
           </CardContent>
         </CardActionArea>
       </Card>
-      </Grid>
-      </Grid>
+      // </Grid>
+      // </Grid>
       
 
     )

@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { collection, addDoc } from "firebase/firestore"
 import { getFirestore, doc, getDocs, getDoc, QueryLimitConstraint } from "firebase/firestore"
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+import { getAuth, signInWithPopup, GoogleAuthProvider,signOut } from "firebase/auth"
 
 
 const firebaseConfig = {
@@ -18,7 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const provider = new GoogleAuthProvider()
-const auth = getAuth()
+export const auth = getAuth(app)
 const db = getFirestore(app)
 
 
@@ -362,7 +362,146 @@ const restro_data =  [
       "saturday": "1:00 PM - 9:00 PM",
       "sunday": "1:00 PM - 7:00 PM"
     }
-  }
+  },
+  {
+    "restaurant_name": "Red Apple Restaurant",
+    "cuisine_type": "Fastfood",
+    "address": {
+      "street": " Tariqroad",
+      "city": "Karachi",
+      "state": "SD",
+      "postal_code": "45678"
+    },
+    "phone": "(021) 36721892-7 ",
+    "image_url": "https://images.deliveryhero.io/image/fd-pk/LH/kr5d-hero.jpg?width=512&height=384&quality=45",
+    "menu_categories": [
+      {
+        "category_name": "Soups",
+        "items": [
+          {
+            "item": "Hot & Sour Soup",
+            "price": 350,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675680289011/1675680289012.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=f0b166cce50dab32af84b396ade2a4c5"
+          },
+          {
+            "item": "Chicken Corn Soup",
+            "price": 300,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675680400614/1675680400615.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=4a8eba1d34a4a8b1b296c13f86d68e42"
+          }
+        ]
+      },
+      {
+        "category_name": "Fastfood",
+        "items": [
+          {
+            "item": "BBQ Broast",
+            "price": 550,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675682202864/1675682202871.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=8cc804be75c30177c45e378c1e98b7f8"
+          },
+          {
+            "item": "Chicken Club Sandwich",
+            "price": 600,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675682953478/1675682953478.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=91b076532e55651b7e561ded16b9aa52"
+          }
+        ]
+      },
+      {
+        "category_name": "Rolls",
+        "items": [
+          {
+            "item": "Chicken Bihari Roll",
+            "price": 300,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675681646192/1675681646195.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=2eca2c6f1496e158173892ef706648e8"
+          },
+          {
+            "item": "Beef Bihari Roll",
+            "price": 300,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675681646192/1675681646195.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=2eca2c6f1496e158173892ef706648e8"
+          }
+        ]
+      }
+    ],
+    "opening_hours": {
+      "monday": "12:00 PM - 8:00 PM",
+      "tuesday": "12:00 PM - 8:00 PM",
+      "wednesday": "12:00 PM - 8:00 PM",
+      "thursday": "12:00 PM - 8:00 PM",
+      "friday": "12:00 PM - 9:00 PM",
+      "saturday": "1:00 PM - 9:00 PM",
+      "sunday": "1:00 PM - 7:00 PM"
+    }
+  },
+
+  {
+    "restaurant_name": "Foods inn",
+    "cuisine_type": "Fastfood",
+    "address": {
+      "street": " Aqeela Arcade Main Shaheed-e-Millat",
+      "city": "Karachi",
+      "state": "SD",
+      "postal_code": "45678"
+    },
+    "phone": "(021) 36721892-7 ",
+    "image_url": "https://images.deliveryhero.io/image/fd-pk/LH/s5nn-hero.jpg?width=512&height=384&quality=45",
+    "menu_categories": [
+      {
+        "category_name": "Soups",
+        "items": [
+          {
+            "item": "Hot & Sour Soup",
+            "price": 350,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675680289011/1675680289012.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=f0b166cce50dab32af84b396ade2a4c5"
+          },
+          {
+            "item": "Chicken Corn Soup",
+            "price": 300,
+            "item_image_url": "https://chikoo.imgix.net/master-prod-private/76226080-caeb-462f-9ff4-a3c68bfc9029/product/1675680400614/1675680400615.jpg?ixlib=js-3.8.0&dpi=96&w=1000&s=4a8eba1d34a4a8b1b296c13f86d68e42"
+          }
+        ]
+      },
+      {
+        "category_name": "Pasta",
+        "items": [
+          {
+            "item": "ALFREDO PASTA",
+            "price": 900,
+            "item_image_url": "https://foodsinn.co/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1657824705-601.JPG&w=640&q=75"
+          },
+          {
+            "item": "PENNE SPICY PASTA",
+            "price": 1100,
+            "item_image_url": "https://foodsinn.co/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1657824736-603.JPG&w=640&q=75"
+          }
+        ]
+      },
+      {
+        "category_name": "Chinese",
+        "items": [
+          {
+            "item": "Cherry Chilli Chicken",
+            "price": 900,
+            "item_image_url": "https://foodsinn.co/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1657916966-702%20(2).JPG&w=640&q=75"
+          },
+          {
+            "item": "Chicken Jalfrezi",
+            "price": 900,
+            "item_image_url": "https://foodsinn.co/_next/image?url=https%3A%2F%2Fassets.indolj.io%2Fimages%2F1657917135-706.JPG&w=640&q=75"
+          }
+        ]
+      }
+    ],
+    "opening_hours": {
+      "monday": "12:00 PM - 8:00 PM",
+      "tuesday": "12:00 PM - 8:00 PM",
+      "wednesday": "12:00 PM - 8:00 PM",
+      "thursday": "12:00 PM - 8:00 PM",
+      "friday": "12:00 PM - 9:00 PM",
+      "saturday": "1:00 PM - 9:00 PM",
+      "sunday": "1:00 PM - 7:00 PM"
+    }
+  },
+  
+
  
 ]
 
@@ -394,6 +533,10 @@ function signin() {
     });
 }
 
+function logout (){
+  return signOut(auth)
+}
+
  async function getRestaurants(){
   const querySnapshot = await getDocs(collection(db, "restaurants"));
   const data = []
@@ -419,4 +562,4 @@ async function getSingleData(restro_id) {
   }
 }
 
-export { signin, postRestaurants,getRestaurants,getSingleData }
+export { signin, postRestaurants,getRestaurants,getSingleData,logout }

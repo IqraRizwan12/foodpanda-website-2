@@ -22,8 +22,7 @@ function Dashboard(){
 
 
     return (
-      <div style={{display: "flex",
-      justifyContent:'space-evenly'
+      <div style={{margin:'10px',padding:'10px',textAlign:'center'
       }} >
         {restroData.map(item => {
         return <Cards

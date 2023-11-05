@@ -12,6 +12,9 @@ import Signin from "../views/Signin"
 import Homepage from "../views/Homepage"
 import Detail from '../views/Detail'
 import { postRestaurants } from "./firebase"
+import { useSelector } from 'react-redux'
+import Theme from "../store/theme"
+
 
 
 
@@ -46,15 +49,17 @@ function Router() {
 }
 
 function Main(){
-   
+   const theme = useSelector(state => state.themeReducer.theme)
+//    console.log('theme',theme)
     //  function restaurants(){
     //      postRestaurants()
     // }
     
     return(
     
-    <div>
+    <div className={theme} >
         <Header/>
+        {/* <Theme/> */}
         {/* <button onClick={restaurants}>Restaurants</button> */}
         <Outlet/>
         <Footer/>
